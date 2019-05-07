@@ -1,0 +1,23 @@
+<input> 3 6
+read 1		; dividend
+read 2		; divisor
+
+load = 0 		; before iteration starts quotient = 0
+store 3		; store quotient
+
+compare: load 1 	; at first iteration remainder = dividend
+sub 2		; compare remainder with divisor
+
+jgtz iterate 	; while remainder >= divisor - continue
+jz iterate
+
+write 3 		; output quotient 
+write 1		; output remainder
+halt
+
+iterate: store 1 	; save new remainder
+load 3		; increment quotient
+add = 1
+store 3
+
+jmp compare	; continue
